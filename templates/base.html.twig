@@ -3,9 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
-			{% endblock %}
-		</title>
+            {% block title %}{{ 'Welcome!'|trans }}{% endblock %}
+        </title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
 		<title>Stelina - Home</title>
 		<meta charset="UTF-8">
@@ -41,7 +40,7 @@
 				<div class="container">
 					<div class="top-bar-left">
 						<div class="header-message">
-							Welcome to our online store!
+							{{ 'welcome_message'|trans }}
 						</div>
 					</div>
 					<div class="top-bar-right">
@@ -49,25 +48,36 @@
 							<div class="stelina-language stelina-dropdown">
 								<a href="#" class="active language-toggle" data-stelina="stelina-dropdown">
 									<span>
-										English (USD)
-									</span>
+                                        {% if app.request.locale == 'fr' %}
+                                            Français (EUR)
+                                        {% else %}
+                                            English (USD)
+                                        {% endif %}
+                                    </span>
 								</a>
 								<ul class="stelina-submenu">
-									<li class="switcher-option">
-										<a href="#">
-											<span>
-												French (EUR)
-											</span>
-										</a>
-									</li>
-								</ul>
+                                    <li class="switcher-option">
+                                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'fr'})) }}">
+                                            <span>
+                                                Français (EUR)
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="switcher-option">
+                                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'en'})) }}">
+                                            <span>
+                                                English (USD)
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
 							</div>
 						</div>
 						<ul class="header-user-links">
-							<li>
-								<a href="login.html">Login or Register</a>
-							</li>
-						</ul>
+                            <li>
+                                <a href="login.html">{{ 'login_or_register'|trans }}</a>
+                            </li>
+                        </ul>
 					</div>
 				</div>
 			</div>

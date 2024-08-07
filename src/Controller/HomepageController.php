@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomepageController extends AbstractController
 {
-    #[Route('/', name: 'app_homepage')]
+    #[Route('/{_locale}', name: 'app_homepage', requirements: ['_locale' => 'en|fr'])]
     public function index(): Response
     {
         return $this->render('homepage/index.html.twig');

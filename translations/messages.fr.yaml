@@ -7,3 +7,7 @@ login: 'Connexion'
 register: 'Inscription'
 home: 'Accueil'
 authentication: 'Authentification'
+login_your_account: 'Connectez-vous à votre compte'
+register_now: "S'inscrire maintenant"
+login_with_social_account: 'Connectez-vous avec un réseau social
+'

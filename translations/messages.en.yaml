@@ -1,2 +1,7 @@
 welcome_message: 'Welcome to our online store!'
 login_or_register: 'Login or Register'
+search_here: 'Search here'
+accessories: 'Accessories'
+shopping_cart: 'Shopping cart'
+login: 'Login'
+register: 'Register'

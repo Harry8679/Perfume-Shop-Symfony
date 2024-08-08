@@ -9,5 +9,11 @@ home: 'Accueil'
 authentication: 'Authentification'
 login_your_account: 'Connectez-vous à votre compte'
 register_now: "S'inscrire maintenant"
-login_with_social_account: 'Connectez-vous avec un réseau social
-'
+login_with_social_account: 'Connectez-vous avec un réseau social'
+form:
+  first_name: 'Prénom'
+  last_name: 'Nom'
+  email: 'Email'
+  password: 'Mot de passe'
+  submit: 'Valider'
+  # last_name_placeholder: 'Veuillez renseigner votre nom'

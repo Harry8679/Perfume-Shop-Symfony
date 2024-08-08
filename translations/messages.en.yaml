@@ -1,12 +1,19 @@
-welcome_message: 'Welcome to our online store!'
-login_or_register: 'Login or Register'
-search_here: 'Search here'
-accessories: 'Accessories'
-shopping_cart: 'Shopping cart'
-login: 'Login'
-register: 'Register'
-home: 'Home'
-authentication: 'Authentication'
-login_your_account: 'Login your Account'
-register_now: 'Register now'
-login_with_social_account: 'Login with social account'
+welcome_message: "Welcome to our online store!"
+login_or_register: "Login or Register"
+search_here: "Search here"
+accessories: "Accessories"
+shopping_cart: "Shopping cart"
+login: "Login"
+register: "Register"
+home: "Home"
+authentication: "Authentication"
+login_your_account: "Login your Account"
+register_now: "Register now"
+login_with_social_account: "Login with social account"
+form:
+  first_name: 'First Name'
+  last_name: 'Last Name'
+  email: 'Email'
+  password: 'Password'
+  submit: 'Submit'
+  # last_name_placeholder: 'Please enter your last name'

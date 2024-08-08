@@ -26,21 +26,25 @@ class RegisterUserType extends AbstractType
         $builder
             ->add('firstName', TextType::class, [
                 'label' => $this->translator->trans('form.first_name'),
+                'label_attr' => ['class' => 'text'],
                 'attr' => ['class' => 'input-text', 'title' => 'firstName'],
                 'row_attr' => ['class' => 'form-row form-row-wide']
             ])
             ->add('lastName', TextType::class, [
                 'label' => $this->translator->trans('form.last_name'),
+                'label_attr' => ['class' => 'text'],
                 'attr' => ['class' => 'input-text', 'title' => 'lastName'],
                 'row_attr' => ['class' => 'form-row form-row-wide']
             ])
             ->add('email', EmailType::class, [
                 'label' => $this->translator->trans('form.email'),
+                'label_attr' => ['class' => 'text'],
                 'attr' => ['class' => 'input-text', 'title' => 'email'],
                 'row_attr' => ['class' => 'form-row form-row-wide']
             ])
             ->add('password', PasswordType::class, [
                 'label' => $this->translator->trans('form.password'),
+                'label_attr' => ['class' => 'text'],
                 'attr' => ['class' => 'input-text', 'title' => 'password'],
                 'row_attr' => ['class' => 'form-row form-row-wide']
             ])

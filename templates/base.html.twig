@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-            {% block title %}{{ 'Welcome!'|trans }}{% endblock %}
-        </title>
+			{% block title %}
+				{{ 'Welcome!'|trans }}
+			{% endblock %}
+		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
 		<title>Stelina - Home</title>
 		<meta charset="UTF-8">
@@ -48,34 +50,34 @@
 							<div class="stelina-language stelina-dropdown">
 								<a href="#" class="active language-toggle" data-stelina="stelina-dropdown">
 									<span>
-                                        {% if app.request.locale == 'fr' %}
-                                            Français (EUR)
-                                        {% else %}
-                                            English (USD)
-                                        {% endif %}
-                                    </span>
+										{% if app.request.locale == 'fr' %}
+											Français (EUR)
+										{% else %}
+											English (USD)
+										{% endif %}
+									</span>
 								</a>
 								<ul class="stelina-submenu">
-                                    <li class="switcher-option">
-                                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'fr'})) }}">
-                                            <span>
-                                                Français (EUR)
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="switcher-option">
-                                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'en'})) }}">
-                                            <span>
-                                                English (USD)
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
+									<li class="switcher-option">
+										<a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'fr'})) }}">
+											<span>
+												Français (EUR)
+											</span>
+										</a>
+									</li>
+									<li class="switcher-option">
+										<a href="{{ path(app.request.attributes.get('_route'), app.request.query.all | merge({'_locale': 'en'})) }}">
+											<span>
+												English (USD)
+											</span>
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<ul class="header-user-links">
 							<li>
-								<a href="login.html">{{ 'login_or_register'|trans }}</a>
+								<a href="{{ path('app_register') }}">{{ 'login_or_register'|trans }}</a>
 							</li>
 						</ul>
 					</div>
@@ -371,20 +373,8 @@
 						<div class="header-nav">
 							<div class="container-wapper">
 								<ul class="stelina-clone-mobile-menu stelina-nav main-menu " id="menu-main-menu">
-									<li class="menu-item  menu-item-has-children">
-										<a href="index.html" class="stelina-menu-item-title" title="Home">Home</a>
-										<span class="toggle-submenu"></span>
-										<ul class="submenu">
-											<li class="menu-item">
-												<a href="index.html">Home 01</a>
-											</li>
-											<li class="menu-item">
-												<a href="home2.html">Home 02</a>
-											</li>
-											<li class="menu-item">
-												<a href="home3.html">Home 03</a>
-											</li>
-										</ul>
+									<li class="menu-item">
+										<a href="{{ path('app_homepage') }}" class="stelina-menu-item-title" title="{{ 'home'|trans }}">{{ 'home'|trans }}</a>
 									</li>
 									<li class="menu-item menu-item-has-children">
 										<a href="gridproducts.html" class="stelina-menu-item-title" title="Shop">Shop</a>
@@ -440,11 +430,11 @@
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-leftsidebar.html">Product left
-																	                                                            sidebar</a>
+																																		                                                            sidebar</a>
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-rightsidebar.html">Product right
-																	                                                            sidebar</a>
+																																		                                                            sidebar</a>
 															</li>
 														</ul>
 													</div>

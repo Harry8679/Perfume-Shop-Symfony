@@ -15,5 +15,6 @@ form:
   last_name: 'Last Name'
   email: 'Email'
   password: 'Password'
+  password_repeated: 'Repeated your password'
   submit: 'Submit'
   # last_name_placeholder: 'Please enter your last name'

@@ -15,5 +15,6 @@ form:
   last_name: 'Nom'
   email: 'Email'
   password: 'Mot de passe'
+  password_repeated: 'Confirmez votre mot de passe'
   submit: 'Valider'
   # last_name_placeholder: 'Veuillez renseigner votre nom'

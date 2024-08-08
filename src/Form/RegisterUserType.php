@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -42,11 +43,22 @@ class RegisterUserType extends AbstractType
                 'attr' => ['class' => 'input-text', 'title' => 'email'],
                 'row_attr' => ['class' => 'form-row form-row-wide']
             ])
-            ->add('password', PasswordType::class, [
-                'label' => $this->translator->trans('form.password'),
-                'label_attr' => ['class' => 'text'],
-                'attr' => ['class' => 'input-text', 'title' => 'password'],
-                'row_attr' => ['class' => 'form-row form-row-wide']
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'mapped' => false,
+                'first_options' => [
+                    'label' => $this->translator->trans('form.password'),
+                    'label_attr' => ['class' => 'text'],
+                    'attr' => ['class' => 'input-text', 'title' => 'password'],
+                    'hash_property_path' => 'password',
+                    'row_attr' => ['class' => 'form-row form-row-wide']
+                ],
+                'second_options' => [
+                    'label' => $this->translator->trans('form.password_repeated'),
+                    'label_attr' => ['class' => 'text'],
+                    'attr' => ['class' => 'input-text', 'title' => 'password'],
+                    'row_attr' => ['class' => 'form-row form-row-wide']
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => $this->translator->trans('form.submit')

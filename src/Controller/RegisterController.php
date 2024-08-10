@@ -23,9 +23,10 @@ class RegisterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Créer un token de confirmation (à sauvegarder dans l'utilisateur)
+            // Créer un token de confirmation
             $user->setConfirmationToken(rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='));
 
+            // Persist et flush l'utilisateur
             $entityManager->persist($user);
             $entityManager->flush();
 

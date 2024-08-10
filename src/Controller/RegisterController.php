@@ -43,4 +43,24 @@ class RegisterController extends AbstractController
             'formRegister' => $form->createView()
         ]);
     }
+
+    #[Route('/confirm/{token}', name: 'app_confirm_email')]
+    public function confirmEmail(string $token, EntityManagerInterface $entityManager): Response
+    {
+        $user = $entityManager->getRepository(User::class)->findOneBy(['confirmationToken' => $token]);
+
+        if (!$user) {
+            throw $this->createNotFoundException('Token invalide.');
+        }
+
+        // Supprimer le token et activer le compte utilisateur
+        $user->setConfirmationToken(null);
+        $user->setIsActive(true); // Assurez-vous que le champ `isActive` existe dans votre entité User
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Votre email a été confirmé avec succès.');
+
+        return $this->redirectToRoute('app_homepage');
+    }
+
 }

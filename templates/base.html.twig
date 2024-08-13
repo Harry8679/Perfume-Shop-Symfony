@@ -30,6 +30,12 @@
 		<link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/flaticon.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> {% block stylesheets %}{% endblock %}
 
+		{# {% form_theme formRegister _self %} <!-- Ajout du thème de formulaire personnalisé -->
+
+        {% block form_errors %}
+            {% include 'form/form_errors.html.twig' %}
+        {% endblock %} #}
+
 		{% block javascripts %}
 			{% block importmap %}
 				{{ importmap('app') }}

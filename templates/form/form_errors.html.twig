@@ -1,0 +1,8 @@
+{% if errors|length > 0 %}
+    <ul class="form-error-message">
+        <h1>This is a test</h1>
+        {% for error in errors %}
+            <li>{{ error.message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

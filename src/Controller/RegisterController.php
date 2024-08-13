@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 // src/Controller/RegisterController.php
 
 namespace App\Controller;
@@ -62,5 +61,4 @@ class RegisterController extends AbstractController
 
         return $this->redirectToRoute('app_homepage');
     }
-
 }

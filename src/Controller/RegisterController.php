@@ -22,6 +22,10 @@ class RegisterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Configurer la langue en fonction de l'utilisateur
+            $locale = $request->getLocale();
+            $request->getSession()->set('_locale', $locale);
+
             // Créer un token de confirmation
             $user->setConfirmationToken(rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='));
 

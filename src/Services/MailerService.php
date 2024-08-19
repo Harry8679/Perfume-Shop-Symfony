@@ -1,11 +1,9 @@
 <?php
-
 // src/Service/MailerService.php
 namespace App\Service;
 
 use SendGrid;
 use SendGrid\Mail\Mail;
-use SendGrid\Mail\From; // Importation nécessaire
 use App\Entity\User;
 
 class MailerService
@@ -21,9 +19,8 @@ class MailerService
     {
         $email = new Mail();
         
-        // Utilisation de l'objet SendGrid\Mail\From
-        // $email->setFrom(new From("no-reply@emarh_perfume.fr", "Emarh Perfume"));
-        $email->setFrom(new From("emarhdureal@gmail.com", "Emarh Perfume"));
+        // Assurez-vous que l'adresse "From" est autorisée par SendGrid
+        $email->setFrom("emarh.harry.code@gmail.com", "Emarh Perfume");
 
         $email->setSubject("Please Confirm Your Email");
         $email->addTo($user->getEmail(), $user->getFirstName() . ' ' . $user->getLastName());
@@ -35,6 +32,9 @@ class MailerService
 
         try {
             $response = $this->sendGrid->send($email);
+            // Ajout d'un dump pour vérifier le statut de la réponse
+            dump($response);
+
             if ($response->statusCode() >= 400) {
                 throw new \Exception('Failed to send email: ' . $response->body());
             }

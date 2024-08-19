@@ -18,3 +18,12 @@ form:
   password_repeated: 'Confirmez votre mot de passe'
   submit: 'Valider'
   # last_name_placeholder: 'Veuillez renseigner votre nom'
+  # translations/messages.fr.yaml
+email:
+  subject: "Veuillez confirmer votre email"
+  greeting: "Bonjour"
+  thank_you: "Merci d'avoir choisi \"Emarh Perfume\" pour l'achat de parfums."
+  confirm_email: "Veuillez confirmer que : "
+  confirm_email_cta: "est votre adresse email en cliquant sur le bouton ci-dessous."
+  button_text: "Valider votre inscription"
+  registration_validation: "Validation Inscription"

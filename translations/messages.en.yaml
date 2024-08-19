@@ -18,3 +18,12 @@ form:
   password_repeated: 'Repeated your password'
   submit: 'Submit'
   # last_name_placeholder: 'Please enter your last name'
+  # translations/messages.en.yaml
+email:
+  subject: "Please Confirm Your Email"
+  greeting: "Hello"
+  thank_you: "Thank you for choosing \"Emarh Perfume\" for purchasing perfumes."
+  confirm_email: "Please confirm that: "
+  confirm_email_cta: "is your email address by clicking the button below."
+  button_text: "Confirm your registration"
+  registration_validation: "Registration Validation"

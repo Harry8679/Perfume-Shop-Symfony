@@ -1,84 +1,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/litera/bootstrap.min.css">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<title>{% trans %}email.subject{% endtrans %}</title>
-		<style>
-			/* Vos styles ici */
-			.centered-content {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 100vh;
-			}
-			.content-block {
-				max-width: 800px;
-			}
-			img {
-				width: 500px;
-				height: 700px;
-			}
-			.email-icon {
-				display: block;
-				margin: 0 auto 20px;
-				font-size: 50px;
-				color: rgb(166, 143, 107);
-			}
-			body {
-				font-family: 'Jost', sans-serif;
-			}
-			p {
-				font-size: 16px;
-				line-height: 26px;
-				color: #666;
-				overflow-x: hidden;
-			}
-			.btn-custom {
-				background-color: rgb(166, 143, 107);
-				border-color: rgb(166, 143, 107);
-				color: white;
-			}
-			.btn-custom:hover {
-				background-color: rgb(143, 123, 92);
-				border-color: rgb(143, 123, 92);
-			}
-		</style>
 	</head>
-	<body>
-		{% block body_html %}
-			<div class="container">
-				<div class="row centered-content">
-					<div class="content-block">
-						<div class="text-center">
-							<i class="bi bi-envelope-check email-icon"></i>
-						</div>
-						<hr/>
-						<div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
-							<img src="https://images.unsplash.com/photo-1620733719521-fa0625956f5c?q=80&w=4000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" class="img-fluid">
-							<div class="col-md-8 ms-4 mt-3 mt-md-0 text-center text-md-start">
-								<h1 class="text-center">{% trans %}email.registration_validation{% endtrans %}</h1>
-								<hr/>
-								<p>
-                                    {% trans %}email.greeting{% endtrans %} <strong>{{ user.firstName }} {{ user.lastName }}</strong>,
-                                    <hr/>
-								</p>
-								<p class="text-center">{% trans %}email.thank_you{% endtrans %}</p>
-								<p>
-									{% trans %}email.confirm_email{% endtrans %}<strong>{{ user.email }}</strong> {% trans %}email.confirm_email_cta{% endtrans %}
-								</p>
-								<hr/>
-								<div class="text-center">
-									<a href="{{ confirmationUrl }}" class="btn btn-custom">{% trans %}email.button_text{% endtrans %}</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		{% endblock %}
+	<body style="font-family: 'Jost', sans-serif; background-color: #f8f9fa; padding: 20px;">
+		<table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: auto; background-color: #ffffff; border: 1px solid #dddddd;">
+			<tr>
+				<td style="text-align: center; padding: 20px;">
+					<img src="https://images.unsplash.com/photo-1620733719521-fa0625956f5c?q=80&w=4000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" width="500px" height="700px">
+				</td>
+                <td style="padding: 20px; text-align: center;">
+					<h1 style="font-size: 24px; color: #333333;">{% trans %}email.registration_validation{% endtrans %}</h1>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.greeting{% endtrans %} <strong>{{ user.firstName }} {{ user.lastName }}</strong>,</p>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.thank_you{% endtrans %}</p>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.confirm_email{% endtrans %}<strong>{{ user.email }}</strong> {% trans %}email.confirm_email_cta{% endtrans %}</p>
+					<a href="{{ confirmationUrl }}" style="background-color: #a68f6b; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">{% trans %}email.button_text{% endtrans %}</a>
+				</td>
+			</tr>
+			{# <tr>
+				<td style="padding: 20px; text-align: center;">
+					<h1 style="font-size: 24px; color: #333333;">{% trans %}email.registration_validation{% endtrans %}</h1>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.greeting{% endtrans %} <strong>{{ user.firstName }} {{ user.lastName }}</strong>,</p>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.thank_you{% endtrans %}</p>
+					<p style="font-size: 16px; color: #666666;">{% trans %}email.confirm_email{% endtrans %}<strong>{{ user.email }}</strong> {% trans %}email.confirm_email_cta{% endtrans %}</p>
+					<a href="{{ confirmationUrl }}" style="background-color: #a68f6b; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">{% trans %}email.button_text{% endtrans %}</a>
+				</td>
+			</tr> #}
+		</table>
 	</body>
 </html>

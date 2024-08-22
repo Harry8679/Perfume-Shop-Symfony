@@ -27,3 +27,4 @@ email:
   confirm_email_cta: "is your email address by clicking the button below."
   button_text: "Confirm your registration"
   registration_validation: "Registration Validation"
+logout: Logout

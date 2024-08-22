@@ -31,10 +31,10 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> {% block stylesheets %}{% endblock %}
 
 		{# {% form_theme formRegister _self %} <!-- Ajout du thème de formulaire personnalisé -->
-		
-		        {% block form_errors %}
-		            {% include 'form/form_errors.html.twig' %}
-		        {% endblock %} #}
+				
+				        {% block form_errors %}
+				            {% include 'form/form_errors.html.twig' %}
+				        {% endblock %} #}
 
 		{% block javascripts %}
 			{% block importmap %}
@@ -84,11 +84,10 @@
 						<ul class="header-user-links">
 							<li>
 								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-									<a href="{{ path('app_logout') }}">Logout</a>
+									<a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a>
 								{% else %}
 									<a href="{{ path('app_login_register') }}">{{ 'login_or_register'|trans }}</a>
 								{% endif %}
-
 							</li>
 						</ul>
 					</div>
@@ -441,11 +440,11 @@
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-leftsidebar.html">Product left
-																																																			                                                            sidebar</a>
+																																																																				                                                            sidebar</a>
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-rightsidebar.html">Product right
-																																																			                                                            sidebar</a>
+																																																																				                                                            sidebar</a>
 															</li>
 														</ul>
 													</div>

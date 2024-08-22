@@ -12,16 +12,13 @@ security:
             security: false
         main:
             form_login:
-                login_path: app_login_register  # La route pour afficher la page de connexion
-                check_path: app_login_register  # La route où les données du formulaire de connexion sont envoyées
-                default_target_path: app_homepage  # Où rediriger après connexion réussie
+                login_path: app_login_register
+                check_path: app_login_register
+                default_target_path: app_homepage
                 always_use_default_target_path: false
             logout:
                 path: app_logout
                 target: app_homepage
-            # form_login:
-            #     login_path: app_login
-            #     check_path: app_login_check  # Remplacez "login_check" par "check_path"
 
             lazy: true
             provider: app_user_provider

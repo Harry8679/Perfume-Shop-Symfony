@@ -54,6 +54,13 @@ class AuthController extends AbstractController
         ]);
     }
 
+    #[Route('/logout', name: 'app_logout')]
+    public function logout(): void
+    {
+        // Le code ici ne sera jamais exécuté
+        throw new \Exception('Don\'t forget to activate logout in security.yaml');
+    }
+
     #[Route('/confirm/{token}', name: 'app_confirm_email')]
     public function confirmEmail(string $token, EntityManagerInterface $entityManager): Response
     {

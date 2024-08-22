@@ -19,6 +19,11 @@ form:
   submit: 'Valider'
   # last_name_placeholder: 'Veuillez renseigner votre nom'
   # translations/messages.fr.yaml
+  ########### Login Form ###########
+  email_label: 'Email'
+  password_label: 'Mot de passe'
+  remember_me: 'Se souvenir de moi'
+  forgot_password: 'Mot de passe oublié ?'
 email:
   subject: "Veuillez confirmer votre email"
   greeting: "Bonjour"

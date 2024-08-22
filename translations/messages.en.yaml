@@ -19,6 +19,11 @@ form:
   submit: 'Submit'
   # last_name_placeholder: 'Please enter your last name'
   # translations/messages.en.yaml
+  ########### Login Form ###########
+  email_label: 'Email'
+  password_label: 'Password'
+  remember_me: 'Remember me'
+  forgot_password: 'Forgot password?'
 email:
   subject: "Please Confirm Your Email"
   greeting: "Hello"

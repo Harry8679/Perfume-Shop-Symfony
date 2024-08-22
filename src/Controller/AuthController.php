@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Service\MailerService;
 
-class RegisterController extends AbstractController
+class AuthController extends AbstractController
 {
     #[Route(['en' => '/login-register', 'fr' => '/connexion-inscription'], name: 'app_login_register')]
     public function LoginRegister(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, AuthenticationUtils $authenticationUtils): Response 

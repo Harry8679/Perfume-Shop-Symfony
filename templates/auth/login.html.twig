@@ -33,7 +33,7 @@
 										{% if error %}
 											<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 										{% endif %}
-										<form method="post" action="{{ path('app_login_register') }}" class="login">
+										<form method="post" action="{{ path('app_login') }}" class="login">
 											<input
 											type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 											<!-- Champ d'identifiant -->
@@ -57,7 +57,6 @@
 											<!-- Bouton de soumission -->
 											<p
 												class="form-row">
-												{# <input type="submit" class="button-submit" value="login"> #}
 												<input type="submit" class="button-submit" value="{{ 'login'|trans }}">
 											</p>
 										</form>

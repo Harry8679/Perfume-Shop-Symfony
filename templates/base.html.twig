@@ -80,7 +80,7 @@
 								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 									<a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a>
 								{% else %}
-									<a href="{{ path('app_login_register') }}">{{ 'login_or_register'|trans }}</a>
+									<a href="{{ path('app_login') }}">{{ 'login'|trans }}</a> / <a href="{{ path('app_register') }}">{{ 'register'|trans }}</a>
 								{% endif %}
 							</li>
 						</ul>

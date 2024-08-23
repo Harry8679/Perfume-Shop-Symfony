@@ -15,18 +15,19 @@ use App\Service\MailerService;
 class AuthController extends AbstractController
 {
     #[Route(['en' => '/login', 'fr' => '/connexion'], name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils): Response 
     {
         // Redirection si l'utilisateur est déjà authentifié
         if ($this->getUser()) {
             return $this->redirectToRoute('app_homepage');
         }
 
-        $lastUsername = $authenticationUtils->getLastUsername();
+        // Gestion de la connexion
+        $lastUsername = $authenticationUtils->getLastUsername() ?? ''; // Assurez-vous que lastUsername est toujours une chaîne de caractères
         $error = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('auth/login.html.twig', [
-            'last_username' => $lastUsername ?? '',
+            'last_username' => $lastUsername,
             'error' => $error,
         ]);
     }

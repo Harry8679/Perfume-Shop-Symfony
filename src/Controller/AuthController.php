@@ -35,7 +35,6 @@ class AuthController extends AbstractController
     #[Route(['en' => '/register', 'fr' => '/inscription'], name: 'app_register')]
     public function register(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService): Response
     {
-        // Redirection si l'utilisateur est déjà authentifié
         if ($this->getUser()) {
             return $this->redirectToRoute('app_homepage');
         }
@@ -46,13 +45,13 @@ class AuthController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setConfirmationToken(rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='));
-
             $entityManager->persist($user);
             $entityManager->flush();
 
             $mailerService->sendValidationEmail($user);
 
-            $this->addFlash('success', 'Un email de confirmation a été envoyé. Veuillez vérifier votre boîte de réception.');
+            // Ajout d'un message flash de confirmation
+            $this->addFlash('success', 'Un email de confirmation a été envoyé à l\'adresse ' . $user->getEmail() . '. Veuillez vérifier votre boîte de réception pour confirmer votre inscription.');
 
             return $this->redirectToRoute('app_homepage');
         }

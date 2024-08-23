@@ -42,7 +42,11 @@
 				<div class="container">
 					<div class="top-bar-left">
 						<div class="header-message">
-							{{ 'welcome_message'|trans }} {% if app.user %}<strong>{{ app.user.firstName }} {{ app.user.lastName }}</strong>{% endif %}
+							{{ 'welcome_message'|trans }}
+							{% if app.user %}
+								<strong>{{ app.user.firstName }}
+									{{ app.user.lastName }}</strong>
+							{% endif %}
 						</div>
 					</div>
 					<div class="top-bar-right">
@@ -80,13 +84,22 @@
 								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 									<a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a>
 								{% else %}
-									<a href="{{ path('app_login') }}">{{ 'login'|trans }}</a> / <a href="{{ path('app_register') }}">{{ 'register'|trans }}</a>
+									<a href="{{ path('app_login') }}">{{ 'login'|trans }}</a>
+									/
+									<a href="{{ path('app_register') }}">{{ 'register'|trans }}</a>
 								{% endif %}
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
+			{% for label, messages in app.flashes %}
+				<div class="alert alert-{{ label }}">
+					{% for message in messages %}
+						{{ message }}
+					{% endfor %}
+				</div>
+			{% endfor %}
 			<div class="container">
 				<div class="main-header">
 					<div class="row">
@@ -434,11 +447,11 @@
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-leftsidebar.html">Product left
-																																																																																					                                                            sidebar</a>
+																																																																																																						                                                            sidebar</a>
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-rightsidebar.html">Product right
-																																																																																					                                                            sidebar</a>
+																																																																																																						                                                            sidebar</a>
 															</li>
 														</ul>
 													</div>

@@ -17,51 +17,34 @@ class AuthController extends AbstractController
     #[Route(['en' => '/login-register', 'fr' => '/connexion-inscription'], name: 'app_login_register')]
     public function LoginRegister(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, AuthenticationUtils $authenticationUtils): Response 
     {
-        // $user = $this->getUser();
-        // // Vérifiez si l'utilisateur est déjà authentifié
-        // if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
-        //     return $this->redirectToRoute('app_homepage');
-        // }
-        // Vérifiez si l'utilisateur est déjà connecté (ayant un token de sécurité valide)
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('app_homepage');
-        // }
-
-        // dd('Test');
-
+        // dd('Controller');
+        
+        // Redirection si l'utilisateur est déjà authentifié
         if ($this->getUser()) {
             return $this->redirectToRoute('app_homepage');
         }
-        
-        // Formulaire d'inscription
+
+        // Gestion de l'inscription
         $user = new User();
         $form = $this->createForm(RegisterUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Configurer la langue en fonction de l'utilisateur
-            $locale = $request->getLocale();
-            $request->getSession()->set('_locale', $locale);
-
-            // Créer un token de confirmation
             $user->setConfirmationToken(rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='));
 
-            // Persist et flush l'utilisateur
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // Envoyer l'email de validation
             $mailerService->sendValidationEmail($user);
 
-            // Ajouter un message flash
             $this->addFlash('success', 'Un email de confirmation a été envoyé. Veuillez vérifier votre boîte de réception.');
 
             return $this->redirectToRoute('app_homepage');
         }
 
-        // Récupérer les erreurs de connexion si présentes
+        // Gestion de la connexion
+        $lastUsername = $authenticationUtils->getLastUsername() ?? ''; // Assurez-vous que lastUsername est toujours une chaîne de caractères
         $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('auth/login_register.html.twig', [
             'formRegister' => $form->createView(),
@@ -69,6 +52,7 @@ class AuthController extends AbstractController
             'error' => $error,
         ]);
     }
+
 
     #[Route('/logout', name: 'app_logout')]
     public function logout(): void

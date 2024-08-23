@@ -39,7 +39,7 @@
 											<!-- Champ d'identifiant -->
 											<p class="form-row form-row-wide">
 												<label class="text">{{ 'form.email_label'|trans }}</label>
-												<input title="username" type="text" name="_username" class="input-text" value="{{ last_username }}">
+												<input title="username" type="text" name="_username" class="input-text" value="{{ last_username ?? '' }}">
 											</p>
 											<!-- Champ de mot de passe -->
 											<p class="form-row form-row-wide">
@@ -55,9 +55,10 @@
 												<a href="#" class="forgot-pw">{{ 'form.forgot_password'|trans }}</a>
 											</p>
 											<!-- Bouton de soumission -->
-											<p class="form-row">
+											<p
+												class="form-row">
 												{# <input type="submit" class="button-submit" value="login"> #}
-                                                <input type="submit" class="button-submit" value="{{ 'login'|trans }}">
+												<input type="submit" class="button-submit" value="{{ 'login'|trans }}">
 											</p>
 										</form>
 									</div>

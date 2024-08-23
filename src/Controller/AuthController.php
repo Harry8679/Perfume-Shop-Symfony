@@ -14,43 +14,6 @@ use App\Service\MailerService;
 
 class AuthController extends AbstractController
 {
-    #[Route(['en' => '/login-register', 'fr' => '/connexion-inscription'], name: 'app_login_register')]
-    public function LoginRegister(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, AuthenticationUtils $authenticationUtils): Response 
-    {
-        // Redirection si l'utilisateur est déjà authentifié
-        if ($this->getUser()) {
-            return $this->redirectToRoute('app_homepage');
-        }
-
-        // Gestion de l'inscription
-        $user = new User();
-        $form = $this->createForm(RegisterUserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user->setConfirmationToken(rtrim(strtr(base64_encode(random_bytes(32)), '+/', '-_'), '='));
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            $mailerService->sendValidationEmail($user);
-
-            $this->addFlash('success', 'Un email de confirmation a été envoyé. Veuillez vérifier votre boîte de réception.');
-
-            return $this->redirectToRoute('app_homepage');
-        }
-
-        // Gestion de la connexion
-        $lastUsername = $authenticationUtils->getLastUsername() ?? ''; // Assurez-vous que lastUsername est toujours une chaîne de caractères
-        $error = $authenticationUtils->getLastAuthenticationError();
-
-        return $this->render('auth/login_register.html.twig', [
-            'formRegister' => $form->createView(),
-            'last_username' => $lastUsername,
-            'error' => $error,
-        ]);
-    }
-
     #[Route(['en' => '/login', 'fr' => '/connexion'], name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

@@ -31,10 +31,10 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> {% block stylesheets %}{% endblock %}
 
 		{# {% form_theme formRegister _self %} <!-- Ajout du thème de formulaire personnalisé -->
-				
-				        {% block form_errors %}
-				            {% include 'form/form_errors.html.twig' %}
-				        {% endblock %} #}
+						
+						        {% block form_errors %}
+						            {% include 'form/form_errors.html.twig' %}
+						        {% endblock %} #}
 
 		{% block javascripts %}
 			{% block importmap %}
@@ -98,7 +98,7 @@
 					<div class="row">
 						<div class="col-lg-3 col-sm-4 col-md-3 col-xs-7 col-ts-12 header-element">
 							<div class="logo">
-								<a href="index.html">
+								<a href={{ path('app_homepage') }}>
 									<img src="assets/images/logo.png" alt="img">
 								</a>
 							</div>
@@ -440,11 +440,11 @@
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-leftsidebar.html">Product left
-																																																																				                                                            sidebar</a>
+																																																																																					                                                            sidebar</a>
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-rightsidebar.html">Product right
-																																																																				                                                            sidebar</a>
+																																																																																					                                                            sidebar</a>
 															</li>
 														</ul>
 													</div>
@@ -615,7 +615,7 @@
 		<div class="footer-device-mobile">
 			<div class="wapper">
 				<div class="footer-device-mobile-item device-home">
-					<a href="index.html">
+					<a href={{ path('app_homepage') }}>
 						<span class="icon">
 							<i class="fa fa-home" aria-hidden="true"></i>
 						</span>

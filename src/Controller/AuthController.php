@@ -71,7 +71,8 @@ class AuthController extends AbstractController
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 
-    #[Route('/confirm/{token}', name: 'app_confirm_email')]
+    // #[Route('/confirm/{token}', name: 'app_confirm_email')]
+    #[Route('/{_locale}/confirm/{token}', name: 'app_confirm_email', requirements: ['_locale' => 'en|fr'])]
     public function confirmEmail(string $token, EntityManagerInterface $entityManager, TranslatorInterface $translator, Request $request): Response
     {
         $user = $entityManager->getRepository(User::class)->findOneBy(['confirmationToken' => $token]);

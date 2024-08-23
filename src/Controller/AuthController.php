@@ -72,7 +72,7 @@ class AuthController extends AbstractController
     }
 
     #[Route('/confirm/{token}', name: 'app_confirm_email')]
-    public function confirmEmail(string $token, EntityManagerInterface $entityManager): Response
+    public function confirmEmail(string $token, EntityManagerInterface $entityManager, TranslatorInterface $translator, Request $request): Response
     {
         $user = $entityManager->getRepository(User::class)->findOneBy(['confirmationToken' => $token]);
 
@@ -85,7 +85,9 @@ class AuthController extends AbstractController
         $user->setIsActive(true); // Assurez-vous que le champ `isActive` existe dans votre entité User
         $entityManager->flush();
 
-        $this->addFlash('success', 'Votre email a été confirmé avec succès.');
+        // Traduire et ajouter le message flash
+        $message = $translator->trans('email.confirmation_success', [], 'messages', $request->getLocale());
+        $this->addFlash('success', $message);
 
         return $this->redirectToRoute('app_homepage');
     }

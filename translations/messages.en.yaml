@@ -34,3 +34,5 @@ email:
   registration_validation: "Registration Validation"
 logout: Logout
 registration.confirmation_message: 'A confirmation email has been sent to the address %email%. Please check your inbox to confirm your registration.'
+email.confirmation_success: "Your email has been successfully confirmed."
+

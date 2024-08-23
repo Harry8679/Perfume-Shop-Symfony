@@ -30,12 +30,6 @@
 		<link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/flaticon.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> {% block stylesheets %}{% endblock %}
 
-		{# {% form_theme formRegister _self %} <!-- Ajout du thème de formulaire personnalisé -->
-						
-						        {% block form_errors %}
-						            {% include 'form/form_errors.html.twig' %}
-						        {% endblock %} #}
-
 		{% block javascripts %}
 			{% block importmap %}
 				{{ importmap('app') }}
@@ -48,7 +42,7 @@
 				<div class="container">
 					<div class="top-bar-left">
 						<div class="header-message">
-							{{ 'welcome_message'|trans }}
+							{{ 'welcome_message'|trans }} {% if app.user %}<strong>{{ app.user.firstName }} {{ app.user.lastName }}</strong>{% endif %}
 						</div>
 					</div>
 					<div class="top-bar-right">

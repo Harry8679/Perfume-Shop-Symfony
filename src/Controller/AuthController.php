@@ -17,6 +17,22 @@ class AuthController extends AbstractController
     #[Route(['en' => '/login-register', 'fr' => '/connexion-inscription'], name: 'app_login_register')]
     public function LoginRegister(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, AuthenticationUtils $authenticationUtils): Response 
     {
+        // $user = $this->getUser();
+        // // Vérifiez si l'utilisateur est déjà authentifié
+        // if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+        //     return $this->redirectToRoute('app_homepage');
+        // }
+        // Vérifiez si l'utilisateur est déjà connecté (ayant un token de sécurité valide)
+        // if ($this->getUser()) {
+        //     return $this->redirectToRoute('app_homepage');
+        // }
+
+        // dd('Test');
+
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
+        
         // Formulaire d'inscription
         $user = new User();
         $form = $this->createForm(RegisterUserType::class, $user);

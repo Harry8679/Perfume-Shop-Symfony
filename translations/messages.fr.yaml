@@ -33,3 +33,5 @@ email:
   button_text: "Valider votre inscription"
   registration_validation: "Validation Inscription"
 logout: Déconnexion
+registration.confirmation_message: "Un email de confirmation a été envoyé à l'adresse %email%. Veuillez vérifier votre boîte de réception pour confirmer votre inscription."
+

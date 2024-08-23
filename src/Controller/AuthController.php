@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Service\MailerService;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AuthController extends AbstractController
 {
@@ -33,7 +34,7 @@ class AuthController extends AbstractController
     }
 
     #[Route(['en' => '/register', 'fr' => '/inscription'], name: 'app_register')]
-    public function register(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService): Response
+    public function register(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, TranslatorInterface $translator): Response
     {
         if ($this->getUser()) {
             return $this->redirectToRoute('app_homepage');
@@ -50,8 +51,9 @@ class AuthController extends AbstractController
 
             $mailerService->sendValidationEmail($user);
 
-            // Ajout d'un message flash de confirmation
-            $this->addFlash('success', 'Un email de confirmation a été envoyé à l\'adresse ' . $user->getEmail() . '. Veuillez vérifier votre boîte de réception pour confirmer votre inscription.');
+            // Utilisation de la traduction pour le message flash
+            $message = $translator->trans('registration.confirmation_message', ['%email%' => $user->getEmail()]);
+            $this->addFlash('success', $message);
 
             return $this->redirectToRoute('app_homepage');
         }
@@ -59,9 +61,8 @@ class AuthController extends AbstractController
         return $this->render('auth/register.html.twig', [
             'formRegister' => $form->createView(),
         ]);
+
     }
-
-
 
     #[Route('/logout', name: 'app_logout')]
     public function logout(): void

@@ -264,57 +264,23 @@
 										</div>
 									</div>
 								</div>
-								<div class="block-account block-header stelina-dropdown">
-									<a href="javascript:void(0);" data-stelina="stelina-dropdown">
+								<div
+									class="block-account block-header stelina-dropdown">
+									{# <a href="javascript:void(0);" data-stelina="stelina-dropdown"> #}
+									<a href="{{ path('app_account') }}" data-stelina="stelina-dropdown">
 										<span class="flaticon-user"></span>
 									</a>
-									<div class="header-account stelina-submenu">
+									<div class="header-account stelina-submenu m-3">
 										<div class="header-user-form-tabs">
-											<ul class="tab-link">
-												<li class="active">
-													<a data-toggle="tab" aria-expanded="true" href="#header-tab-login">{{ 'login'|trans }}</a>
-												</li>
-												<li>
-													<a data-toggle="tab" aria-expanded="true" href="#header-tab-rigister">{{ 'register'|trans }}</a>
+											<ul class="list-product-order">
+												<li class="product-item-order">
+													<div class="product-order-inner">
+														<h5 class="product-name">
+															<a href="#">3D Dining Chair</a>
+														</h5>
+													</div>
 												</li>
 											</ul>
-											<div class="tab-container">
-												<div id="header-tab-login" class="tab-panel active">
-													<form method="post" class="login form-login">
-														<p class="form-row form-row-wide">
-															<input type="email" placeholder="Email" class="input-text">
-														</p>
-														<p class="form-row form-row-wide">
-															<input type="password" class="input-text" placeholder="Password">
-														</p>
-														<p class="form-row">
-															<label class="form-checkbox">
-																<input type="checkbox" class="input-checkbox">
-																<span>
-																	Remember me
-																</span>
-															</label>
-															<input type="submit" class="button" value="Login">
-														</p>
-														<p class="lost_password">
-															<a href="#">Lost your password?</a>
-														</p>
-													</form>
-												</div>
-												<div id="header-tab-rigister" class="tab-panel">
-													<form method="post" class="register form-register">
-														<p class="form-row form-row-wide">
-															<input type="email" placeholder="Email" class="input-text">
-														</p>
-														<p class="form-row form-row-wide">
-															<input type="password" class="input-text" placeholder="Password">
-														</p>
-														<p class="form-row">
-															<input type="submit" class="button" value="Register">
-														</p>
-													</form>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -447,11 +413,11 @@
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-leftsidebar.html">Product left
-																																																																																																						                                                            sidebar</a>
+																																																																																																																																																																										                                                            sidebar</a>
 															</li>
 															<li class="menu-item">
 																<a href="productdetails-rightsidebar.html">Product right
-																																																																																																						                                                            sidebar</a>
+																																																																																																																																																																										                                                            sidebar</a>
 															</li>
 														</ul>
 													</div>

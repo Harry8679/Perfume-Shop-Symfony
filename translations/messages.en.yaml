@@ -35,4 +35,5 @@ email:
 logout: Logout
 registration.confirmation_message: 'A confirmation email has been sent to the address %email%. Please check your inbox to confirm your registration.'
 email.confirmation_success: "Your email has been successfully confirmed."
-
+my_account: 'My Account'
+update_password: 'Update Your Password'

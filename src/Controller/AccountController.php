@@ -8,11 +8,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AccountController extends AbstractController
 {
-    #[Route('/account', name: 'app_account')]
+    #[Route(['en' => '/account', 'fr' => '/mon-compte'], name: 'app_account')]
+    // #[Route(['en' => '/register', 'fr' => '/inscription'], name: 'app_register')]
     public function index(): Response
     {
-        return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
-        ]);
+        
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
+        
+        return $this->render('account/index.html.twig');
     }
 }

@@ -37,4 +37,6 @@ registration.confirmation_message: "Un email de confirmation a été envoyé à 
 email.confirmation_success: "Votre email a été confirmé avec succès."
 my_account: 'Mon Compte'
 update_password: 'Modifier votre mot de passe'
+show_profile: 'Voir votre profil'
+update_profile: 'Modifier votre profil'
 

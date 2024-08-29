@@ -273,6 +273,7 @@
 									<div class="header-account stelina-submenu m-3">
 										<div class="header-user-form-tabs">
 											<ul>
+												{% if app.user %}
 												<li>
 													<span class="fa fa-address-card-o"></span>
 													<a href="#">{{ 'show_profile'|trans }}</a>
@@ -289,6 +290,16 @@
 													<span class="fa fa-sign-out"></span>
 													<a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a>
 												</li>
+												{% else %}
+												<li>
+													<span class="fa fa-user-circle-o"></span>
+													<a href="{{ path('app_login') }}">{{ 'login'|trans }}</a>
+												</li>
+												<li>
+													<span class="fa fa-user-plus"></span>
+													<a href="{{ path('app_register') }}">{{ 'register'|trans }}</a>
+												</li>
+												{% endif %}
 											</ul>
 										</div>
 									</div>

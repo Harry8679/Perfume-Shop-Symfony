@@ -8,6 +8,9 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -25,6 +28,7 @@ class PasswordUserType extends AbstractType
     {
         $builder
             ->add('actualPassword', PasswordType::class, [
+                'mapped' => false,
                 'label' => $this->translator->trans('update_password_form.actual_password'),
                 'attr' => [
                     'placeholder' => $this->translator->trans('update_password_form.actual_password_placeholder')
@@ -56,6 +60,19 @@ class PasswordUserType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => $this->translator->trans('update_password_form.submit')
             ])
+            ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+                // die('Mon évènement marche !');
+                $form = $event->getForm();
+                $user = $form->getConfig()->getOptions()['data'];
+                $passwordHasher = $form->getConfig()->getOptions()['passwordHasher'];
+                // 1. Récupérer le mot de passe saisi par l'utilisateur et le comparer avec celui en base
+                $isValid = $passwordHasher->isPasswordValid($user, $form->get('actualPassword')->getData());
+                // dd($isValid);
+                // 2. Si c'est différents renvoie une erreur
+                if (!$isValid) {
+                    $form->get('actualPassword')->addError(new FormError("Votre mot de passe actuel n'est pas le bon."));
+                }
+            })
         ;
     }
 
@@ -63,6 +80,7 @@ class PasswordUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'passwordHasher' => null,
         ]);
     }
 }

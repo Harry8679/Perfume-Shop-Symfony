@@ -17,6 +17,8 @@ form:
   password: 'Password'
   password_repeated: 'Repeated your password'
   submit: 'Submit'
+  login: 'Login'
+  register: 'Registration'
   # last_name_placeholder: 'Please enter your last name'
   # translations/messages.en.yaml
   ########### Login Form ###########
@@ -40,3 +42,11 @@ update_password: 'Update Your Password'
 show_profile: 'Show your profile'
 update_profile: 'Update your profile'
 space_update_password: 'Space to change your password'
+
+update_password_form:
+  actual_password: 'Your current password'
+  actual_password_placeholder: 'Please enter your current password'
+  new_password: 'Your new password'
+  new_password_placeholder: 'Please enter your new password'
+  confirm_new_password: 'Confirm your new password'
+  confirm_new_password_placeholder: 'Please confirm your new password'

@@ -17,6 +17,8 @@ form:
   password: 'Mot de passe'
   password_repeated: 'Confirmez votre mot de passe'
   submit: 'Valider'
+  login: 'Connexion'
+  register: 'Inscription'
   # last_name_placeholder: 'Veuillez renseigner votre nom'
   # translations/messages.fr.yaml
   ########### Login Form ###########
@@ -32,7 +34,7 @@ email:
   confirm_email_cta: "est votre adresse email en cliquant sur le bouton ci-dessous."
   button_text: "Valider votre inscription"
   registration_validation: "Validation Inscription"
-logout: Déconnexion
+logout: 'Déconnexion'
 registration.confirmation_message: "Un email de confirmation a été envoyé à l'adresse %email%. Veuillez vérifier votre boîte de réception pour confirmer votre inscription."
 email.confirmation_success: "Votre email a été confirmé avec succès."
 my_account: 'Mon Compte'
@@ -40,4 +42,12 @@ update_password: 'Modifier votre mot de passe'
 show_profile: 'Voir votre profil'
 update_profile: 'Modifier votre profil'
 space_update_password: 'Espace pour modifier votre mot de passe'
+
+update_password_form:
+  actual_password: 'Votre mot de passe actuel'
+  actual_password_placeholder: 'Veuillez renseigner votre mot de passe actuel'
+  new_password: 'Votre nouveau mot de passe'
+  new_password_placeholder: 'Veuillez renseigner votre nouveau mot de passe'
+  confirm_new_password: 'Confirmez votre nouveau mot de passe'
+  confirm_new_password_placeholder: 'Veuillez confirmez votre nouveau mot de passe'
 

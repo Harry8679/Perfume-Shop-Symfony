@@ -50,3 +50,4 @@ update_password_form:
   new_password_placeholder: 'Please enter your new password'
   confirm_new_password: 'Confirm your new password'
   confirm_new_password_placeholder: 'Please confirm your new password'
+  submit: 'Submit'

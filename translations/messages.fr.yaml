@@ -50,4 +50,5 @@ update_password_form:
   new_password_placeholder: 'Veuillez renseigner votre nouveau mot de passe'
   confirm_new_password: 'Confirmez votre nouveau mot de passe'
   confirm_new_password_placeholder: 'Veuillez confirmez votre nouveau mot de passe'
+  submit: 'Valider'
 

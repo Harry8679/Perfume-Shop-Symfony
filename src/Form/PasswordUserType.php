@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -51,6 +52,9 @@ class PasswordUserType extends AbstractType
                     'attr' => ['class' => 'input-text', 'title' => 'password', 'placeholder' => 'update_password_form.confirm_new_password_placeholder'],
                     'row_attr' => ['class' => 'form-row form-row-wide']
                 ]
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => $this->translator->trans('update_password_form.submit')
             ])
         ;
     }

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AccountController extends AbstractController
 {
-    #[Route(['en' => '/account', 'fr' => '/mon-compte'], name: 'app_account')]
+    #[Route(['en' => '/account', 'fr' => '/compte'], name: 'app_account')]
     // #[Route(['en' => '/register', 'fr' => '/inscription'], name: 'app_register')]
     public function index(): Response
     {
@@ -18,5 +18,11 @@ class AccountController extends AbstractController
         }
         
         return $this->render('account/index.html.twig');
+    }
+
+    #[Route(['en' => '/account/update-password', 'fr' => '/compte/modifier-votre-mot-de-passe'], name: 'app_account_update_password')]
+    public function update_password(): Response
+    {
+        return $this->render('account/update_password.html.twig');
     }
 }

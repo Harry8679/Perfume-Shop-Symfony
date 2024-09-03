@@ -39,6 +39,7 @@ registration.confirmation_message: 'A confirmation email has been sent to the ad
 email.confirmation_success: "Your email has been successfully confirmed."
 my_account: 'My Account'
 update_password: 'Update Your Password'
+show_account: 'My Account'
 show_profile: 'Show your profile'
 update_profile: 'Update your profile'
 space_update_password: 'Space to change your password'

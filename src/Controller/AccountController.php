@@ -37,13 +37,12 @@ class AccountController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // dd($form->getData());
             $em->flush();
+            // Utilisation de la traduction pour le message flash
+            $message = $translator->trans('update_password_form.confirmation_update_password_message');
+            $this->addFlash('success', $message);
+
+            return $this->redirectToRoute('app_account');
         }
-
-        // Utilisation de la traduction pour le message flash
-        $message = $translator->trans('update_password_form.confirmation_update_password_message');
-        $this->addFlash('success', $message);
-
-        return $this->redirectToRoute('app_account');
 
         return $this->render('account/update_password.html.twig', [
             'formUpdatePassword' => $form->createView(),

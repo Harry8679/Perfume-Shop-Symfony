@@ -1,51 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	{{ 'my_account'|trans }}
+    {{ 'my_account'|trans }}
 {% endblock %}
 
 {% block body %}
-	<div class="main-content main-content-404 right-sidebar">
-		<div class="container">
-			<div class="row">
-				<div class="content-area content-404 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="site-main">
-						<section class="error-404 not-found">
-							<div class="images">
-								<img src="https://media.istockphoto.com/id/1399637805/fr/photo/vue-de-dessus-pose-plate-dun-ensemble-de-flacons-de-parfum-sur-un-fond-vierge-beige.webp?a=1&b=1&s=612x612&w=0&k=20&c=yrsAj2zIYp491d8H5ITsePGnx9j20UK0mHJaT7otsZw=" alt="img">
-							</div>
-							<div class="text-404">
-								<h1 class="page-title">
-									Votre Espace Membre
-								</h1>
-								<p class="page-content">
-									Cet espace est strictement personnel, il est donc préférable de faire attention autour de vous quand vous êtes connecté(e) à votre espace.
-									<br/>
-									Cet espace vous permet de gérer votre compte et vos commandes !
-									{# You could return to
-									<a href="index.html" class="hightlight">
-										Home page</a>
-									or using
-									<span class="hightlight toggle-hightlight">
-										search!
-									</span> #}
-								</p>
-								<form role="search" method="get" class="search-form">
-									{# <input type="search" class="search-field" placeholder="Your search here…">
-									<button>Search</button> #}
-									<button>Voir votre profil</button>
-									<button>Modifier votre profil</button>
-									<hr>
-									<button>Modifier votre mot de passe</button>
-									<a href="{{ path('') }}"></a>
-									<hr>
-									<button>Vos différentes commandes</button>
-								</form>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="main-content main-content-404 right-sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="content-area content-404 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="site-main">
+                        <section class="error-404 not-found">
+                            <div class="images">
+                                <img src="https://media.istockphoto.com/id/1399637805/fr/photo/vue-de-dessus-pose-plate-dun-ensemble-de-flacons-de-parfum-sur-un-fond-vierge-beige.webp?a=1&b=1&s=612x612&w=0&k=20&c=yrsAj2zIYp491d8H5ITsePGnx9j20UK0mHJaT7otsZw=" alt="img">
+                            </div>
+                            <div class="text-404">
+                                <h1 class="page-title">
+                                    Votre Espace Membre
+                                </h1>
+                                <p class="page-content">
+                                    Cet espace est strictement personnel, il est donc préférable de faire attention autour de vous quand vous êtes connecté(e) à votre espace.
+                                    <br/>
+                                    Cet espace vous permet de gérer votre compte et vos commandes !
+                                </p>
+                                <form role="search" method="get" class="search-form">
+                                    <a href="#">
+                                        <button type="button">Voir votre profil</button>
+                                    </a>
+                                    <a href="#">
+                                        <button type="button">Modifier votre profil</button>
+                                    </a>
+                                    <hr>
+                                    <a href="{{ path('app_account_update_password') }}">
+                                        <button>Modifier votre mot de passe</button>
+                                    </a>
+                                    <hr>
+                                    <a href="#">
+                                        <button type="button">Vos différentes commandes</button>
+                                    </a>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

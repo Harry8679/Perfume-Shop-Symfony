@@ -51,3 +51,4 @@ update_password_form:
   confirm_new_password: 'Confirm your new password'
   confirm_new_password_placeholder: 'Please confirm your new password'
   submit: 'Submit'
+  confirmation_update_password_message: 'The modification of your password has been taken into account.'

@@ -33,7 +33,7 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('name')->setLabel('Nom')->setHelp('Nom de votre produit'),
             SlugField::new('slug')->setTargetFieldName('name')->setLabel('URL')->setHelp('URL de votre catégorie générée automatiquement'),
             TextEditorField::new('description')->setLabel('Description')->setHelp('Description de votre produit'),
-            ImageField::new('illustration')->setLabel('Image')->setHelp('Image du produit')->setUploadDir('/public/uploads'),
+            ImageField::new('illustration')->setLabel('Image')->setHelp('Image du produit')->setBasePath('/uploads')->setUploadDir('/public/uploads'),
             NumberField::new('price')->setLabel('Prix')->setHelp('Prix du produiy en €'),
             AssociationField::new('category', 'Catégorie associée')
         ];

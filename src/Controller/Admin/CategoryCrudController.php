@@ -19,7 +19,7 @@ class CategoryCrudController extends AbstractCrudController
     {
         return $crud
             ->setEntityLabelInSingular('Categorie')
-            ->setEntityLabelInPlural('Catégorie');
+            ->setEntityLabelInPlural('Catégories');
     }
 
     public function configureFields(string $pageName): iterable

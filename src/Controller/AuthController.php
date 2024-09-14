@@ -15,7 +15,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AuthController extends AbstractController
 {
-    #[Route(['en' => '/login', 'fr' => '/connexion'], name: 'app_login')]
+    #[Route(['en' => '/en/login', 'fr' => '/fr/connexion'], name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response 
     {
         // Redirection si l'utilisateur est déjà authentifié
@@ -33,7 +33,7 @@ class AuthController extends AbstractController
         ]);
     }
 
-    #[Route(['en' => '/register', 'fr' => '/inscription'], name: 'app_register')]
+    #[Route(['en' => '/en/register', 'fr' => '/fr/inscription'], name: 'app_register')]
     public function register(Request $request, EntityManagerInterface $entityManager, MailerService $mailerService, TranslatorInterface $translator): Response
     {
         if ($this->getUser()) {
